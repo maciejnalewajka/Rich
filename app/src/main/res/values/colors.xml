@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <resources>
+
+    <color name="colorPrimary">#feffdb</color>
+
+    <color name="colorPrimaryDark">#000000</color>
+
+    <color name="colorAccent">#ffc60b</color>
+
+    <color name="colorAccentDark">#ff8b00</color>
+
+</resources>
