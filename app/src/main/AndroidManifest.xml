@@ -3,7 +3,7 @@
     package="com.rich">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/button_f"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/button_round"

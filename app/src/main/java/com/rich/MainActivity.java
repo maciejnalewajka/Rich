@@ -1,8 +1,8 @@
 package com.rich;
 
 import android.graphics.drawable.AnimationDrawable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,22 +11,23 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     ConstraintLayout mylayout;
-    AnimationDrawable anim;
+    AnimationDrawable animationDrawable;
+    TextView textView;
+    View obraz;
     int val = 1;
-    boolean val2 = false;
+    boolean move = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        textView = findViewById(R.id.textView);
+        obraz = findViewById(R.id.obraz_id);
         anim();
-
     }
 
     public void click(View view) {
-        View obraz = findViewById(R.id.obraz_id);
-
         switch (val){
             case 1:
                 obraz.setBackgroundResource(R.drawable.round2);
@@ -47,26 +48,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void on(View view) {
-        TextView textView = findViewById(R.id.textView);
-        if(!val2){
+        if(!move){
             textView.setSelected(true);
             textView.setText(R.string.rich2);
-            val2 = true;
+            move = true;
         }
         else{
             textView.setSelected(false);
             textView.setText(R.string.rich);
-            val2 = false;
+            move = false;
         }
     }
 
-    public void anim(){
+    private void anim(){
         mylayout = findViewById(R.id.pierwszy);
-        anim = (AnimationDrawable) mylayout.getBackground();
-        anim.setEnterFadeDuration(10);
-        anim.setExitFadeDuration(3000);
-        anim.start();
+        animationDrawable = (AnimationDrawable) mylayout.getBackground();
+        animationDrawable.setEnterFadeDuration(10);
+        animationDrawable.setExitFadeDuration(3500);
+        animationDrawable.start();
     }
 }
