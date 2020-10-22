@@ -1,4 +1,4 @@
-package com.rich;
+package com.nalewajka.rich;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.rich;
+package com.nalewajka.rich;
 
 import android.graphics.drawable.AnimationDrawable;
 import androidx.constraintlayout.widget.ConstraintLayout;
