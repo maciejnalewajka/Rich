@@ -6,16 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ConstraintLayout mylayout;
-    AnimationDrawable animationDrawable;
-    TextView textView;
-    View obraz;
-    int val = 1;
-    boolean move = false;
+    private TextView textView;
+    private View obraz;
+    private int val = 1;
+    private boolean move = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +23,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
         obraz = findViewById(R.id.obraz_id);
+        ImageView imageView = findViewById(R.id.imageView);
+        ImageView imageView2 = findViewById(R.id.imageView2);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                move();
+            }
+        });
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rotate();
+            }
+        });
         anim();
+        move();
     }
 
-    public void click(View view) {
+    private void rotate() {
         switch (val){
             case 1:
                 obraz.setBackgroundResource(R.drawable.round2);
@@ -48,22 +64,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void on(View view) {
+    private void move() {
         if(!move){
-            textView.setSelected(true);
-            textView.setText(R.string.rich2);
+            textView.setText(R.string.rich);
             move = true;
         }
         else{
-            textView.setSelected(false);
-            textView.setText(R.string.rich);
+            textView.setText(R.string.rich2);
             move = false;
         }
     }
 
     private void anim(){
-        mylayout = findViewById(R.id.pierwszy);
-        animationDrawable = (AnimationDrawable) mylayout.getBackground();
+        ConstraintLayout mylayout = findViewById(R.id.pierwszy);
+        AnimationDrawable animationDrawable = (AnimationDrawable) mylayout.getBackground();
         animationDrawable.setEnterFadeDuration(10);
         animationDrawable.setExitFadeDuration(3500);
         animationDrawable.start();
