@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private View obraz;
-    private int val = 1;
-    private boolean move = false;
+    private int val = 0;
+    private String string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         obraz = findViewById(R.id.obraz_id);
         ImageView imageView = findViewById(R.id.imageView);
         ImageView imageView2 = findViewById(R.id.imageView2);
+        string = getResources().getString(R.string.rich);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,34 +46,32 @@ public class MainActivity extends AppCompatActivity {
 
     private void rotate() {
         switch (val){
-            case 1:
+            case 0:
                 obraz.setBackgroundResource(R.drawable.round2);
+                val = 1;
+                break;
+            case 1:
+                obraz.setBackgroundResource(R.drawable.round3);
                 val = 2;
                 break;
             case 2:
-                obraz.setBackgroundResource(R.drawable.round3);
+                obraz.setBackgroundResource(R.drawable.round4);
                 val = 3;
                 break;
             case 3:
-                obraz.setBackgroundResource(R.drawable.round4);
-                val = 4;
-                break;
-            case 4:
                 obraz.setBackgroundResource(R.drawable.round);
-                val = 1;
+                val = 0;
                 break;
         }
     }
 
     private void move() {
-        if(!move){
-            textView.setText(R.string.rich);
-            move = true;
+        StringBuilder str = new StringBuilder(string.substring(0, 3));
+        for (int i = 0;i < val; i++){
+            str.append(" very");
         }
-        else{
-            textView.setText(R.string.rich2);
-            move = false;
-        }
+        str.append(string.substring(3));
+        textView.setText(str.toString());
     }
 
     private void anim(){

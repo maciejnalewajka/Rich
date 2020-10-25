@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Rich</string>
-    <string name="i_m_rich">I\'m rich!</string>
     <string name="rich">I\'m rich!</string>
-    <string name="rich2">"                    I\'m rich!                    "</string>
     <string name="image">image</string>
 </resources>
