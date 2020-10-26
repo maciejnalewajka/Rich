@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private View obraz;
     private int val = 0;
+    private int val2 = 0;
     private String string;
 
     @Override
@@ -67,11 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void move() {
         StringBuilder str = new StringBuilder(string.substring(0, 3));
-        for (int i = 0;i < val; i++){
+        for (int i = 0;i < val2; i++){
             str.append(" very");
         }
         str.append(string.substring(3));
         textView.setText(str.toString());
+        if (val2 == 3){ val2 = 0; }
+        else {val2 += 1;}
     }
 
     private void anim(){
