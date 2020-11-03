@@ -1,3 +1,3 @@
 # Rich
 
-### Applicatio for testing Play Google Store.
+### Application for testing Play Google Store.
